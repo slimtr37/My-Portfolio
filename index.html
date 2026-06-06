@@ -447,6 +447,87 @@ footer{background:var(--text);color:#94a3b8;padding:48px 24px 24px}
   .tm-grid{grid-template-columns:1fr 1fr}
   .hero-content{grid-template-columns:1fr 1fr;gap:40px}
 }
+
+/* ===== ADMIN PANEL ===== */
+#adminOverlay{position:fixed;inset:0;z-index:9998;background:rgba(15,23,42,.95);display:none;overflow-y:auto}
+#adminOverlay.active{display:block}
+#adminLogin{display:flex;align-items:center;justify-content:center;min-height:100vh}
+.adm-box{background:#fff;border-radius:16px;padding:40px;width:100%;max-width:400px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.adm-icon{width:56px;height:56px;background:linear-gradient(135deg,#2563eb,#3b82f6);border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:1.6rem}
+.adm-box h2{font-size:1.4rem;font-weight:900;margin-bottom:6px}
+.adm-box p{font-size:.85rem;color:#64748b;margin-bottom:24px}
+.adm-box input{width:100%;padding:12px 16px;border:2px solid #e2e8f0;border-radius:10px;font-size:.95rem;margin-bottom:12px;outline:none;transition:border-color .2s}
+.adm-box input:focus{border-color:#2563eb}
+.adm-box button{width:100%;padding:12px;background:#2563eb;color:#fff;border:none;border-radius:10px;font-weight:700;font-size:.95rem;cursor:pointer}
+.adm-box button:hover{background:#1d4ed8}
+.adm-error{color:#dc2626;font-size:.8rem;margin-top:8px;font-weight:600;min-height:20px}
+#adminPanel{display:none;background:#f8fafc;min-height:100vh}
+#adminPanel.active{display:block}
+.adm-layout{display:flex}
+.adm-sidebar{width:240px;background:#fff;border-right:1px solid #e2e8f0;position:fixed;inset:0;z-index:100;display:flex;flex-direction:olumn}
+.adm-main{flex:1;margin-left:240px}
+.adm-topbar{position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid #e2e8f0;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;z-index:50}
+.adm-topbar h3{font-size:1.05rem;font-weight:800;margin:0}
+.adm-nav{flex:1;padding:10px}
+.adm-nav button{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;font-size:.85rem;font-weight:600;color:#64748b;cursor:pointer;transition:all .2s;border:none;background:none;width:100%;text-align:left}
+.adm-nav button:hover,.adm-nav button.active{background:#eff6ff;color:#2563eb}
+.adm-brand{padding:18px 16px;border-bottom:1px solid #e2e8f0;font-weight:900;font-size:1.05rem}
+.adm-brand span{color:#2563eb}
+.adm-content{padding:20px 24px;max-width:900px}
+.adm-card{background:#fff;border:1.5px solid #e2e8f0;border-radius:14px;padding:24px;margin-bottom:16px}
+.adm-card h4{font-size:1rem;font-weight:800;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid #e2e8f0}
+.adm-field{margin-bottom:14px}
+.adm-field label{display:block;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:#64748b;margin-bottom:5px}
+.adm-field input,.adm-field textarea,.adm-field select{width:100%;padding:10px 14px;border:1.5px solid #e2e8f0;border-radius:10px;font-size:.85rem;color:#0f172a;background:#fff;outline:none;transition:border-color .2s,box-shadow .2s;font-family:inherit;resize:vertical}
+.adm-field input:focus,.adm-field textarea:focus,.adm-field select:focus{border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,.1)}
+.adm-field textarea{min-height:80px}
+.adm-cols2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.adm-cols3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.adm-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.adm-tag{background:#eff6ff;border:1px solid #dbeafe;color:#1d4ed8;padding:5px 12px;border-radius:8px;font-size:.8rem;font-weight:600;display:flex;align-items:center;gap:6px}
+.adm-tag button{background:none;border:none;color:#dc2626;cursor:pointer;padding:0;font-size:1rem;line-height:1;font-weight:700}
+.adm-tagrow{display:flex;gap:8px;margin-top:8px}
+.adm-tagrow input{flex:1}
+.adm-tagrow button{background:#2563eb;color:#fff;border:none;padding:8px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:.85rem}
+.adm-acc{border:1.5px solid #e2e8f0;border-radius:12px;margin-bottom:10px;overflow:hidden;background:#fff}
+.adm-acc-head{padding:14px 18px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;background:#fff;transition:background .2s;font-weight:700;font-size:.85rem;border:none;width:100%}
+.adm-acc-head:hover{background:#f8fafc}
+.adm-acc-head .tgl{font-size:.8rem;color:#64748b;transition:transform .2s}
+.adm-acc.open .tgl{transform:rotate(180deg)}
+.adm-acc-body{display:none;padding:0 18px 18px}
+.adm-acc.open .adm-acc-body{display:block}
+.adm-btn-prime{background:#2563eb;color:#fff;padding:10px 20px;border:none;border-radius:10px;font-weight:700;font-size:.85rem;cursor:pointer}
+.adm-btn-prime:hover{background:#1d4ed8}
+.adm-btn-red{background:#fef2f2;border:1.5px solid #fecaca;color:#dc2626;padding:8px 16px;border-radius:8px;font-weight:700;font-size:.8rem;cursor:pointer}
+.adm-btn-red:hover{background:#fee2e2}
+.adm-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:20px}
+.adm-stat{background:#fff;border:1.5px solid #e2e8f0;border-radius:14px;padding:24px;text-align:center}
+.adm-stat-lab{font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#64748b;margin-bottom:8px}
+.adm-stat-val{font-size:2.2rem;font-weight:900;color:#2563eb;line-height:1}
+.adm-table{width:100%;border-collapse:collapse;font-size:.85rem}
+.adm-table th{text-align:left;padding:10px 12px;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#64748b;border-bottom:2px solid #e2e8f0}
+.adm-table td{padding:10px 12px;border-bottom:1px solid #e2e8f0}
+.adm-table tr:hover td{background:#f8fafc}
+.adm-toast{position:fixed;bottom:24px;right:24px;background:#0f172a;color:#fff;padding:14px 22px;border-radius:12px;font-size:.85rem;font-weight:700;z-index:9999;transform:translateY(120px);opacity:0;transition:all .3s}
+.adm-toast.show{transform:translateY(0);opacity:1}
+.adm-toggle{position:fixed;bottom:16px;right:16px;z-index:90;background:rgba(15,23,42,.7);color:#94a3b8;padding:8px 14px;border-radius:8px;font-size:.72rem;font-weight:700;cursor:pointer;backdrop-filter:blur(4px);border:none}
+.adm-toggle:hover{background:rgba(15,23,42,.9);color:#fff}
+.adm-footer{padding:12px;border-top:1px solid #e2e8f0}
+.adm-footer button{width:100%;display:flex;align-items:center;gap:8px;padding:10px 12px;border:none;background:#fef2f2;color:#dc2626;font-weight:700;font-size:.85rem;cursor:pointer;border-radius:8px}
+.adm-footer button:hover{background:#fee2e2}
+.adm-savebar{position:sticky;bottom:20px;z-index:50}
+.adm-savebar button{box-shadow:0 4px 20px rgba(37,99,235,.3);padding:14px 32px;font-size:1rem}
+.adm-actions{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap}
+.adm-actions button{font-size:.85rem;padding:10px 20px;border-radius:10px;font-weight:700;cursor:pointer;border:none}
+.adm-actions .green{background:#ecfdf5;border:1.5px solid #bbf7d0;color:#16a34a}
+.adm-actions .green:hover{background:#d1fae5}
+@media(max-width:768px){
+  .adm-sidebar{transform:translateX(-100%);transition:transform .3s}
+  .adm-main{margin-left:0}
+  .adm-cols2,.adm-cols3{grid-template-columns:1fr}
+  .adm-stats{grid-template-columns:1fr 1fr}
+  .adm-sidebar.open{transform:translateX(0)}
+}
 </style>
 <base target="_blank">
 </head>
@@ -1827,8 +1908,48 @@ footer{background:var(--text);color:#94a3b8;padding:48px 24px 24px}
   </div>
 </footer>
 
-<!-- Admin Link -->
-<a href="admin.html" class="admin-link">&#9881; Admin</a>
+<!-- ADMIN TOGGLE -->
+<button class="adm-toggle" id="admToggle" onclick="openAdmin()" title="Admin Dashboard">&#9881; Admin</button>
+
+<!-- ADMIN OVERLAY -->
+<div id="adminOverlay">
+
+  <!-- LOGIN -->
+  <div id="adminLogin">
+    <div class="adm-box">
+      <div class="adm-icon">&#128274;</div>
+      <h2>Admin Dashboard</h2>
+      <p>Edit your portfolio content</p>
+      <input type="password" id="admPass" placeholder="Password" onkeydown="if(event.key==='Enter')admLogin()">
+      <button onclick="admLogin()">Sign In</button>
+      <div class="adm-error" id="admErr"></div>
+      <p style="margin-top:16px"><a href="#" onclick="closeAdmin();return false;" style="color:#64748b;font-size:.85rem">&larr; Back to Portfolio</a></p>
+    </div>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div id="adminPanel">
+    <div class="adm-layout">
+      <aside class="adm-sidebar" id="admSidebar">
+        <div class="adm-brand">Selim<span>.</span> <span style="font-size:.75rem;color:#64748b;font-weight:500">Admin</span></div>
+        <nav class="adm-nav" id="admNav"></nav>
+        <div class="adm-footer">
+          <button onclick="closeAdmin()">&#128682; Close Admin</button>
+        </div>
+      </aside>
+      <div class="adm-main">
+        <div class="adm-topbar">
+          <h3 id="admTitle">Dashboard</h3>
+          <div style="display:flex;gap:8px">
+            <button class="adm-btn-prime" onclick="admExport()">&#128190; Export</button>
+            <button class="adm-btn-prime" onclick="admImport()" style="background:#fff;color:#2563eb;border:1.5px solid #e2e8f0">&#128194; Import</button>
+          </div>
+        </div>
+        <div class="adm-content" id="admContent"></div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- JAVASCRIPT -->
 <script>
@@ -1977,6 +2098,183 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
     if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth'}); closeDrawer(); }
   });
 });
+
+// ============================================================
+// ADMIN DASHBOARD — Integrated
+// ============================================================
+var ADMPASS='admin123',ADMSTORE='selim-portfolio-v2';
+var ADM, ADMNavItems=[
+  {p:'dashboard',l:'Dashboard',i:'&#128202;'},{p:'hero',l:'Hero Section',i:'&#128100;'},{p:'about',l:'About',i:'&#128221;'},{p:'approach',l:'Approach',i:'&#127919;'},{p:'cases',l:'Case Studies',i:'&#128188;'},{p:'tamara',l:'Tamara Project',i:'&#127758;'},{p:'journalism',l:'Journalism',i:'&#127908;'},{p:'tools',l:'Tools & Certs',i:'&#128295;'},{p:'timeline',l:'Career',i:'&#128336;'},{p:'testimonials',l:'Testimonials',i:'&#128172;'},{p:'faq',l:'FAQ',i:'&#10067;'},{p:'contact',l:'Contact',i:'&#9993;'},{p:'seo',l:'SEO',i:'&#127760;'},{p:'submissions',l:'Submissions',i:'&#128229;'}
+];
+
+function admDefault(){
+return {
+hero:{name:"Selim Hadj Brahim",title:"Content Strategist and SEO Writer at Art Leads Digital",description:"I write content that earns trust, ranks on Google, and converts readers into clients. 27 case studies across health tourism, lead generation, B2B, legal, and lifestyle brands.",eyebrow:"Available for Projects",tags:"SEO Writing,Content Strategy,Health Tourism,Lead Generation,French Market,Multilingual",primaryCtaText:"View 27 Case Studies",primaryCtaLink:"#cases",secondaryCtaText:"Get in Touch",secondaryCtaLink:"#contact",badgeCompany:"Art Leads Digital",badgeLocation:"Istanbul, Turkey",photo:"hero-photo.jpg"},
+about:{label:"About",title:"Content that earns trust and drives action",subtitle:"I am a Content Strategist and SEO Writer based in Istanbul, working at Art Leads Digital to help brands across 8 industries grow through content that matters.",skills:"SEO Writing,Content Strategy,Medical Content,B2B Copywriting,French Market,Lead Generation,Technical Writing,Brand Narrative",industries:"Health Tourism and Medical Clinics (Istanbul),Energy and Telecom Comparison (France\, Switzerland),B2B Manufacturing and Logistics,Legal and Immigration Consulting (France),Fashion\, Lifestyle and E-Commerce,Real Estate (Turkey)",paragraphs:"Over the years\, I have worked across media\, journalism\, SEO\, and digital communications for organizations operating in healthcare\, B2B\, legal services\, lead generation\, and international markets.|My work focuses on building communication systems that do more than attract traffic. The goal is to create trust\, clarify positioning\, and help organizations connect with the right audience through strategic content and digital ecosystems.|I have contributed to projects targeting Francophone\, Arab\, and international audiences\, producing editorial and SEO-driven content for healthcare providers\, comparison platforms\, industrial companies\, legal services\, and media-oriented businesses.|Whether writing for patients researching medical procedures\, professionals evaluating technical services\, or individuals searching for legal guidance\, my approach remains consistent: create clear\, structured\, and credible communication that responds to real audience intent.|My background in journalism and media production continues to shape how I approach storytelling\, audience psychology\, editorial quality\, and strategic communication in modern digital environments.",resumeUrl:"/resume.pdf"},
+approach:{label:"Approach",title:"How I think about content",subtitle:"Every piece of content I produce follows a framework built on intent\, trust\, and conversion.",cards:[{n:"01",t:"Start with search intent",d:"Before writing a word\, I map the exact question the reader is asking\, the emotional state they are in\, and the action they need to take next."},{n:"02",t:"Build trust before asking",d:"Whether the reader is a patient considering surgery abroad or a procurement manager sourcing industrial equipment\, trust is the only currency that converts."},{n:"03",t:"Earn organic visibility",d:"Good content earns links\, rankings\, and return visits. I structure every article to satisfy search engines by first satisfying the reader."},{n:"04",t:"React to news fast",d:"For lead generation clients in energy and telecom\, timing is a competitive moat. I produce publishable content within 48 hours."},{n:"05",t:"Adapt to market and culture",d:"The Swiss market is not a translation of the French market. I build content that adapts to cultural context\, not just language."},{n:"06",t:"Deliver measurable output",d:"I track what matters: organic traffic\, lead volume\, inquiry rate\, and content coverage across the buyer journey."}]},
+tamara:{title:"Tamara Management: Full Business Digital Transformation",label:"Digital Consulting Project",meta:"Indonesia 2024 to Present",kpi1v:"4",kpi1l:"Business Pillars",kpi2v:"Full",kpi2l:"Rebranding",kpi3v:"24/7",kpi3l:"Strategy",roleLabel:"My Role",roleText:"Digital Business Consultant full rebranding\, workflow design\, business strategy\, marketing systems\, and team training.",description:"End-to-end digital transformation for an Indonesian business management consultancy. Led the complete rebranding initiative\, built operational workflows across four business pillars\, developed the marketing strategy\, and trained the internal team.",points:"Complete brand repositioning from traditional consultancy to integrated business solutions|Workflow architecture for 4 business lines|Digital marketing strategy including website\, content systems\, and client acquisition funnels|Team training programs on content management\, SEO fundamentals\, and digital operations|Business ecosystem design connecting service delivery with measurable client outcomes",svc1t:"Business Execution & Management",svc1d:"Managing and developing business with strategies that drive sustainable growth.",svc2t:"Media & Reputation",svc2d:"Strengthening business reputation and visibility through integrated professional media strategies.",svc3t:"Social Impact Programs",svc3d:"Empowering communities through measurable social programs with real\, sustainable impact.",svc4t:"Financial Empowerment",svc4d:"Financial empowerment for literacy\, independence\, and optimal business growth.",link:"https://tamaramanagement.co.id/"},
+journalism:{label:"Journalism",title:"From Newsroom to Digital Strategy",subtitle:"Years in broadcast journalism shaped my approach to storytelling\, audience psychology\, and content that moves people to act.",outletName:"Nessma TV",outletRole:"Journalist / Presenter / Producer",outletPeriod:"2013 2018",outletLocation:"Tunis\, Tunisia",outletArabic:"https://www.nessma.tv/ar",outletFrench:"https://www.nessma.tv/fr",outletDesc:"Researched and produced television content\, including reports on current events\, social issues\, and investigations.",outletHighlights:"Produced investigative reports|Supervised production teams|Hosted live programs|Covered breaking news",skills:"Investigative Reporting|Live Presentation|Production Management|Arabic Journalism|French Journalism|Breaking News Coverage|Audience Engagement|Editorial Standards"},
+tools:{label:"Tools & Technologies",title:"My Technical Stack",subtitle:"The tools I use daily to research\, create\, optimize\, and measure content performance.",tool1:"Ahrefs|SEO Research",tool2:"SEMrush|SEO Research",tool3:"Google Analytics 4|Analytics",tool4:"Google Search Console|Analytics",tool5:"Screaming Frog|Technical SEO",tool6:"Surfer SEO|Content Optimization",tool7:"Clearscope|Content Optimization",tool8:"WordPress|CMS",tool9:"Shopify|E-Commerce",tool10:"Figma|Design",tool11:"Notion|Project Management",tool12:"Google Docs|Writing",certs:"Google Analytics Certification|Google Ads Search Certification|HubSpot Content Marketing Certification|HubSpot SEO Certification|SEMrush SEO Toolkit Certification"},
+contact:{label:"Contact",title:"Let's work together",subtitle:"Open to content strategy and SEO writing projects in health\, legal\, B2B\, and lead generation.",email:"Slimtr37@gmail.com",linkedin:"https://linkedin.com/in/selim-hadj-brahim",agency:"https://www.artleadsdigital.com/case-studies/",agencyLabel:"Art Leads Digital Case Studies",location:"Istanbul\, Turkey (Sisli)",languages:"English\, French\, Arabic",availability:"Full-time\, Part-time\, Freelance\, Remote"},
+seo:{pageTitle:"Selim Hadj Brahim Content Strategist & SEO Writer | 27 Case Studies",metaDesc:"Selim Hadj Brahim Content Strategist & SEO Writer specializing in health tourism\, B2B\, lead generation\, and legal content. 27 proven case studies.",keywords:"SEO writer\, content strategist\, health tourism content\, B2B copywriter\, lead generation content\, French market SEO\, multilingual content writer",author:"Selim Hadj Brahim",ogImage:"/og-image.jpg",twitter:"@selimhadjbrahim",siteUrl:"https://selimhadjbrahim.com",language:"en",robots:"index\, follow"}
+};
+}
+
+// Case studies data (27 entries as compact strings)
+var ADMCases=[
+["01","hestanbul","health","Health Tourism","Hestanbul: Full Digital Transformation","Istanbul 2021-Present","15+,$3K-8K,5-20","Articles,Per Patient,Monthly","Content Strategist and SEO Writer all blog and website content since launch.","Comprehensive content strategy for a leading Istanbul health tourism provider.","15+ published SEO articles|Summer Health Guide with medical citations|Pre-procedure trust content|Seasonal content calendar","https://www.artleadsdigital.com/portfolio/hestanbul-medical-tourism-company-digital-transformation/","https://www.artleadsdigital.com/wp-content/uploads/2025/09/Hestanbul-After-Hover-Mockup-1-600x600.png","https://www.artleadsdigital.com/wp-content/uploads/2024/01/startlogo-01-01.png.webp"],
+["02","soufia","health","Health Tourism","Soufia Clinic: Comprehensive Rebranding","Istanbul 2022-Present","4,$5K-15K,GCC","Languages,Per Patient,Primary Market","Content Strategist full website content multilingual trust architecture.","Premium positioning content for a luxury health clinic serving GCC patients.","JCI accreditation featured|Multilingual EN/AR/FR|WhatsApp Concierge|Arabic reviews for GCC trust","https://www.artleadsdigital.com/portfolio/soufia-clinic-a-comprehensive-rebranding-and-digital-strategy/","https://www.artleadsdigital.com/wp-content/uploads/2025/05/Soufia-Clinic-After-Hover-Mockup-600x600.png","https://www.artleadsdigital.com/wp-content/uploads/2024/01/soufia-old.jpeg"],
+["03","axess","health","Health Tourism","Axess Medical: Modern Identity for Health and Beauty","Turkey 2023-Present","$4.1B,1.8M,Active","Market Size,Patients/Yr,Strategy","Content Strategist and SEO Writer all website content.","Full website content strategy for a Turkish health and beauty clinic.","1-3% conversion rate|International patient journey|1.8M annual patients|Medical accuracy framework","https://www.artleadsdigital.com/portfolio/rebranding-axess-medical-a-modern-identity-for-health-and-beauty/","https://www.artleadsdigital.com/wp-content/uploads/2025/10/Artleads-Website-Case-Studies-Axess-Medical--600x600.png","https://www.artleadsdigital.com/wp-content/uploads/2025/10/Axess-Medical-original-thicker-Logo-cut-1-scaled.png"],
+["04","silian","health","Health Tourism","Silians Clinic: Full Digital Transformation","Istanbul 2022-Present","Full,Health,Active","Transformation,Tourism,Management","Content Strategist full digital transformation content.","End-to-end digital content transformation for a Turkish hair and health clinic.","Full website copy rewrite|SEO hair & cosmetic content|Patient trust architecture|Ongoing content management","https://www.artleadsdigital.com/portfolio/silians-clinic-full-digital-transformation-and-management/","https://www.artleadsdigital.com/wp-content/uploads/2024/02/Artleads-Website-Case-Studies-Silians-.png","https://www.artleadsdigital.com/wp-content/uploads/2024/01/slilians-clinic-logo.png"],
+["05","hair-istanbul","health","Health Tourism","Hair in Istanbul: Social Media and Ad Campaigns","Istanbul 2022-Present","Hair,Europe,Active","Transplant,Target Market,Campaigns","Content Strategist ad copy website content campaign messaging.","Campaign content for an Istanbul hair transplant clinic targeting European patients.","Ad copy for European patients|Hair transplant SEO content|Campaign & clinical messaging|Paid + organic acquisition","https://www.artleadsdigital.com/portfolio/hair-in-istanbul-unique-results-with-social-media-and-ad-campaigns-launch/","https://www.artleadsdigital.com/wp-content/uploads/2024/01/Artleads-Website-Case-Studies-Hair-in-Istanbul.png","https://www.artleadsdigital.com/wp-content/uploads/2024/01/HII-logo-horizontal.png"],
+["06","kmat","health","Health Tourism","Kmat Medical: Rebranding and Social Media","Turkey 2021-Present","Multi-Year,Full,Medical","Engagement,Rebrand,Tourism","Content Strategist rebranding content website copy ongoing content.","Multi-year content management for a Turkish medical clinic through a full rebrand.","Full rebrand content|Website copy aligned|Multi-year content management|Social media + ads content","https://www.artleadsdigital.com/portfolio/kmat-medical-rebranding-and-years-of-social-media-and-ads-management/","https://www.artleadsdigital.com/wp-content/uploads/2024/01/Artleads-Website-Case-Studies-Kmat-Clinic-.png","https://www.artleadsdigital.com/wp-content/uploads/2024/01/KMAT-Clinic-mobilea.png"],
+["07","esteplasthair","health","Health Tourism","Esteplasthair: Health Tourism Full Digital Marketing","Istanbul 2020-Present","Health,SEO,Active","Tourism,Organic,Strategy","Content Strategist health tourism content strategy and SEO writing.","Full digital content management for a Turkish hair and plastic surgery clinic.","SEO hair & plastic surgery|Patient trust framework|European & GCC audiences|Ongoing SEO writing","https://www.artleadsdigital.com/wp-content/uploads/2023/12/Artleads-Website-Case-Studies-EPH-.png","https://www.artleadsdigital.com/wp-content/uploads/2020/07/logoy.png"],
+["08","esthcare","health","Health Tourism","Esthcare: Elevating Health Tourism","Turkey 2020-Present","Health,Digital,Active","Tourism,Transformation,SEO","Content Strategist website content and SEO writing.","Content strategy for a Turkish health tourism clinic.","Trust across markets|European patient SEO|International patient journey|Clinical credibility standards","https://www.artleadsdigital.com/portfolio/esthcare-elevating-health-tourism-through-comprehensive-digital-transformation/","https://www.artleadsdigital.com/wp-content/uploads/2023/12/Artleads-Website-Case-Studies-Esthcare-.png","https://www.artleadsdigital.com/wp-content/uploads/2020/07/download-2.jpeg"],
+["09","fix-hair","health","Health Tourism","Fix Hair Clinic: Website Launch and Lead Gen","Istanbul 2019-Present","Website,Lead,Hair","Launch,Generation,Transplant","Content Strategist website launch content and lead generation copy.","Website launch content and social media lead generation for an Istanbul hair transplant clinic.","Website launch content|Lead generation copy|European patient targeting|Organic + paid foundation","https://www.artleadsdigital.com/portfolio/fix-hair-clinic-crafting-success-in-hair-transplantation-with-a-website-launch-and-strategic-social-media-lead-generation-campaign/","https://www.artleadsdigital.com/wp-content/uploads/2019/12/Artleads-Website-Case-Studies-Fix-Hair-.png","https://www.artleadsdigital.com/wp-content/uploads/2019/12/vector_smart_object1.jpeg"],
+["10","este-future","health","Health Tourism","Este Future: A Year of Success","Turkey 2019-Present","Year 1,Health,Full","Launch,Tourism,Pipeline","Content Strategist launch content strategy and ongoing SEO writing.","Full launch content strategy for a new health tourism brand in Istanbul.","Launch ecosystem from day one|Competitive SEO keywords|First-time visitor conversion|Full-year patient pipeline","https://www.artleadsdigital.com/portfolio/este-future-a-year-of-success-from-launch-to-prosperity-with-art-leads/","https://www.artleadsdigital.com/wp-content/uploads/2023/12/Artleads-Website-Case-Studies-EsteFuture-.png","https://www.artleadsdigital.com/wp-content/uploads/2019/08/313387948_425520263103007_924661504451629939_n.jpeg"],
+["11","mcan","health","Health Tourism","MCAN Health: ROI Innovation","Istanbul 2019-Present","20K+,High,Active","Patients,Volume ROI,Strategy","Content Strategist digital content strategy supporting ROI-focused patient acquisition.","Content strategy for one of Istanbul's most recognized hair transplant brands.","High-volume patient acquisition|EN/FR/AR SEO strategy|Clinical authority positioning|20000+ international patients","https://www.artleadsdigital.com/portfolio/revolutionizing-roi-unleashing-success-for-mcan-health-through-innovative-digital-marketing-strategies/","https://www.artleadsdigital.com/wp-content/uploads/2019/08/Artleads-Website-Case-Studies-MCAN-HEALTH-.png","https://www.artleadsdigital.com/wp-content/uploads/2023/12/download-1.png"],
+["12","miles","health","Health Tourism","Miles Clinic: Digital Wellness Website","Turkey 2022-Present","Wellness,Full,Active","Clinic,Website,SEO","Content Strategist full website content for digital wellness clinic launch.","Website content for a Turkish wellness clinic serving local and international patients.","Full wellness service pages|Patient FAQ content|International trust architecture|Wellness SEO writing","https://www.artleadsdigital.com/portfolio/digital-wellness-crafting-the-miles-clinic-website-for-success/","https://www.artleadsdigital.com/wp-content/uploads/2024/01/Artleads-Website-Case-Studies-Miles-Clinic-.png","https://www.artleadsdigital.com/wp-content/uploads/2024/01/miles-horisantal.png"],
+["13","calmgastro","health","Health and Wellness","CalmGastro: Smart E-Commerce Ecosystem","2024-Present","E-Commerce,Health,Active","Platform,Wellness,SEO","Content Strategist e-commerce product content SEO writing brand storytelling.","E-commerce content strategy for a health and wellness brand.","Product content for conversions|Supplement SEO content|Health brand storytelling|Category content architecture","https://www.artleadsdigital.com/wp-content/uploads/2025/10/Artleads-Website-Case-Studies-Calmgastro-600x600.png","https://www.artleadsdigital.com/wp-content/uploads/2025/10/CG-Logo-EN.png.png"],
+["14","bayyou","leadgen","Lead Generation","Bayyou: Digital Ecosystem into Lead Machine","France 2023-Present","20+,50-200 EUR,48h","Blog Posts,Per Lead,News to Content","Content Strategist and SEO Writer all blog and website content for French energy comparison.","News-reactive SEO content strategy for a French energy comparison platform.","48hr news-reactive articles|10x search spike captured|5M household reach|20+ blog posts","https://www.artleadsdigital.com/wp-content/uploads/2025/10/bayyou-case-study.jpeg","https://www.artleadsdigital.com/wp-content/uploads/2025/10/Bayyou-Horizontal-Logo-scaled.png-1.webp"],
+["15","monabo","leadgen","Swiss Telecom","Monabo: Inbound Revolution in Swiss Telecom","Switzerland 2023-Present","100-300 EUR,FR/DE/IT,Active","Per Lead,Swiss Markets,Strategy","Content Strategist and SEO Writer all blog and website content for Swiss telecom comparison.","Inbound content strategy for a Swiss telecom comparison platform.","Swiss-specific trust signals|5847 Comparaisons social proof|Swiss regulatory content|100-300 EUR per lead","https://www.artleadsdigital.com/wp-content/uploads/2025/10/Artleads-Website-Case-Studies-Monabo-.png","https://www.artleadsdigital.com/wp-content/uploads/2025/10/Monabo-Compate-Logo-Size-03.png"],
+["16","offresmoinscher","leadgen","Lead Generation","offresmoinscher.fr: Complete Digital Setup","France 2024-Present","Full,France,Active","Digital Setup,Energy Market,Lead Gen","Content Strategist and SEO Writer full digital content setup.","Complete digital content setup for a French energy comparison platform.","Content architecture from zero|Smart consumer positioning|French energy comparison guides|News-reactive content system","https://www.artleadsdigital.com/wp-content/uploads/2025/10/Artleads-Website-Case-Studies-OMC-.png","https://www.artleadsdigital.com/wp-content/uploads/2025/10/offremoinscherlogo.jpg"],
+["17","fineagles","b2b","B2B Manufacturing","Fineagles: Digital Management and Branding B2B","Turkey 2022-Present","500K-2M EUR,6-18mo,EN/TR","Per Deal,Sales Cycle,Bilingual","Content Strategist and Technical Writer SEO content for industrial manufacturer.","Technical content strategy for a Turkish manufacturer of sandwich panel production lines.","Technical product content|Sapphire Tower HQ credibility|Bilingual EN/TR structure|6-18 month B2B cycle","https://www.artleadsdigital.com/wp-content/uploads/2025/09/Finealges-After-Hover-Mockup-600x600.png","https://www.artleadsdigital.com/wp-content/uploads/2024/01/Logo-final-01-01.png"],
+["18","turcdoc","b2b","B2B Startup","TurcDoc: From Idea to Reality Startup Launch","Turkey 2023-Present","Startup,B2B,Turkey","Launch,Platform,Market","Content Strategist launch content strategy and brand messaging for B2B startup.","Launch content strategy for a Turkish B2B startup.","New product category content|Category trust from zero|Complex B2B value proposition|Investor + customer content","https://www.artleadsdigital.com/wp-content/uploads/2024/02/Turcdoc-Casestudy.jpeg","https://www.artleadsdigital.com/wp-content/uploads/2024/02/TurcDoc-logo-main-no-website.webp"],
+["19","alslama","b2b","B2B Logistics","Al Slama: Digital Transformation for Shipping","International 2022-Present","B2B,International,Digital","Logistics,Shipping,Transformation","Content Strategist digital content transformation and brand messaging.","Digital content transformation for an international shipping company.","B2B shipping partner content|Reliability & scale messaging|Digital presence content|Logistics copywriting","https://www.artleadsdigital.com/wp-content/uploads/2025/09/Alslama-Logistics-After-Hover-Mockup-600x600.png","https://www.artleadsdigital.com/wp-content/uploads/2024/01/Artleads-Alslama-Logo-Befoe-and-after.png"],
+["20","cayan","b2b","Real Estate","Cayan Group: Online Presence in Real Estate","Istanbul 2020-Present","Real,International,Brand","Estate,Buyers,Narrative","Content Strategist brand narrative and website content for real estate group.","Content strategy and brand narrative for a Turkish real estate group.","International investor confidence|Buyer trust barriers addressed|Premium positioning content|Property marketing content","https://www.artleadsdigital.com/wp-content/uploads/2023/12/Artleads-Website-Case-Studies-Cayan-Group-.png","https://www.artleadsdigital.com/wp-content/uploads/2020/07/cayan_logo_en.png"],
+["21","cartintek","b2b","B2B E-Commerce","Cartintek: Visual Identity and E-Commerce Setup","Turkey 2022-Present","E-Commerce,B2B,Turkey","Setup,Products,Market","Content Strategist e-commerce product content and brand messaging.","Brand messaging and e-commerce content for a Turkish B2B product company.","B2B e-commerce product content|Reliable supplier positioning|Organic category visibility|Visual identity content","https://www.artleadsdigital.com/wp-content/uploads/2024/01/Artleads-Website-Case-Studies-Cartintek-.png","https://www.artleadsdigital.com/wp-content/uploads/2024/01/cartintek-logo-1.svg"],
+["22","formalites","legal","Legal / Consulting","Formalites Francaises: Full Digital Ecosystem for Immigration","France 2023-Present","2K-10K EUR,24/7,Life","Per Client,High Intent,Impact","Content Strategist and SEO Writer all website and blog content.","All website and blog content for a French immigration and legal consulting firm.","OQTF deportation appeal content|Naturalisation & Titre de sejour|Empathy-first approach|Life-changing content reach","https://www.artleadsdigital.com/wp-content/uploads/2025/10/Artleads-Website-Case-Studies-Formalites-Francaises-600x600.png","https://www.artleadsdigital.com/wp-content/uploads/2025/10/logo-formalites-francaises-384-b-3.webp"],
+["23","maraliana","fashion","Fashion","Maraliana: Digital Transformation in Fashion","Turkey 2022-Present","Fashion,Digital,Active","Brand,Transformation,Campaigns","Content Strategist digital content transformation and brand storytelling.","Digital content transformation for a Turkish fashion brand.","Brand storytelling|Content marketing strategy|E-commerce conversion|Luxury fashion positioning","https://www.artleadsdigital.com/wp-content/uploads/2024/01/Artleads-Website-Case-Studies-Maraliana-.png","https://www.artleadsdigital.com/wp-content/uploads/2024/01/Horizontal.png"],
+["24","liven","fashion","E-Commerce","Liven Decor Art: Shopify Journey","Turkey 2022-Present","Shopify,Art and Decor,Active","E-Commerce,Brand,SEO","Content Strategist Shopify e-commerce content and product storytelling.","Shopify e-commerce content strategy for a Turkish decor art brand.","Shopify product descriptions|Collection storytelling|Interior design SEO|Collection discovery content","https://www.artleadsdigital.com/wp-content/uploads/2024/01/Artleads-Website-Case-Studies-Liven-Decor-Art-.png","https://www.artleadsdigital.com/wp-content/uploads/2024/01/liven-decor-logo.png"],
+["25","black-tiger","fashion","Brand Creation","Black Tiger Honey: Brand Creation","2022-Present","Brand,Premium,Full","Creation,Honey,Content Setup","Content Strategist brand creation content product storytelling website copy.","Brand creation and digital content for a premium honey brand.","Premium artisan brand narrative|Origin & quality storytelling|Premium food trust content|Social + e-commerce foundation","https://www.artleadsdigital.com/wp-content/uploads/2024/01/Artleads-Website-Case-Studies-Black-Tiger-Honey-.png","https://www.artleadsdigital.com/wp-content/uploads/2024/01/Black-Tiger-Honey-Logo.png"],
+["26","allmena","fashion","Rebranding","Allmena: From Rebranding to Meta Ads Mastery","2021-Present","Full,Meta Ads,Active","Rebrand,Support,Campaigns","Content Strategist rebranding content and campaign messaging supporting Meta Ads.","Rebranding content strategy and campaign messaging for a brand refresh.","New brand voice framework|Meta Ads campaign copy|New visual/verbal identity|Paid + organic awareness","https://www.artleadsdigital.com/wp-content/uploads/2023/12/Artleads-Website-Case-Studies-Allmena-.png","https://www.artleadsdigital.com/wp-content/uploads/2023/12/LOGO_v.png"],
+["27","classe-vendome","fashion","Luxury Brand","Classe Vendome: Distinctive Brand Presence","2020-Present","Luxury,French,Premium","Brand,Inspired,Positioning","Content Strategist luxury brand content and website copy.","Luxury brand content for Classe Vendome a French-inspired prestige brand.","French elegance narrative|High-end clientele copy|Luxury online discovery|Brand prestige standards","https://www.artleadsdigital.com/wp-content/uploads/2023/12/Artleads-Website-Case-Studies-Classe-Vendome-.png","https://www.artleadsdigital.com/wp-content/uploads/2020/07/logo.jpeg"]
+];
+
+// Load/save admin data
+function admLoad(){
+  try{var s=localStorage.getItem(ADMSTORE);if(s){ADM=JSON.parse(s);return}}catch(e){}
+  ADM=admDefault();
+  var cs=[];ADMCases.forEach(function(r){var k=r[6].split(","),l=r[7].split(",");cs.push({n:r[0],id:r[1],cat:r[2],label:r[3],title:r[4],meta:r[5],kpi1v:k[0],kpi1l:l[0],kpi2v:k[1],kpi2l:l[1],kpi3v:k[2],kpi3l:l[2],role:r[8],desc:r[9],points:r[10],link:r[11],img:r[12],logo:r[13],st:"Active"});});
+  ADM.cases=cs;
+  ADM.timeline=[
+    {id:"1",year:"2013 - 2018",title:"Journalist / Presenter / Producer",company:"Nessma TV / Tunisna TV",location:"Tunis, Tunisia",desc:"Researched and produced television content including reports on current events social issues and investigations.",highlights:"Investigative reporting|Live program hosting|Production team supervision|Breaking news coverage"},
+    {id:"2",year:"2018 - 2021",title:"Freelance SEO Content Writer",company:"Digital Nomad",location:"Asia",desc:"Delivered high-quality written content tailored to client needs emphasizing research accuracy and credibility.",highlights:"SEO content writing|Content strategy development|Client relationship management|Remote work"},
+    {id:"3",year:"2021 - Present",title:"Content Writer & Manager",company:"Art Leads Digital",location:"Istanbul, Turkey (Remote)",desc:"Design and execute digital communication strategies. Create tailored content for blogs websites and social media.",highlights:"27 case studies across 8 industries|Health tourism for 13+ clinics|Lead generation for FR/CH markets|B2B technical writing|Multilingual EN/FR/AR"},
+    {id:"4",year:"2024 - Present",title:"Digital Business Consultant",company:"Tamara Management",location:"Indonesia (Remote)",desc:"Full digital transformation consulting including rebranding workflow design business strategy marketing systems and team training.",highlights:"Brand repositioning strategy|Workflow architecture|Digital marketing strategy|Team training"}
+  ];
+  ADM.testimonials=[
+    {id:"1",name:"Marketing Director",company:"Hestanbul Medical",quote:"Selim's content strategy transformed our digital presence. The SEO articles he produced consistently rank on page one for competitive health tourism keywords in European markets."},
+    {id:"2",name:"CEO",company:"Bayyou.fr",quote:"The 48-hour news-reactive content system Selim built captured a 10x search spike during the energy crisis. We generated an estimated 500-2,000 qualified leads in peak periods."},
+    {id:"3",name:"General Manager",company:"Fineagles Industrial",quote:"Selim understood our B2B technical audience immediately. His content speaks the language engineers trust - not marketing fluff, but real technical credibility."}
+  ];
+  ADM.faq=[
+    {id:"1",q:"What industries do you specialize in?",a:"I specialize in health tourism, lead generation (energy/telecom comparison), B2B manufacturing, legal/immigration consulting, and lifestyle brands. My deepest expertise is in health tourism - I've written for 13+ medical clinics in Istanbul."},
+    {id:"2",q:"What languages do you work in?",a:"I produce content in English, French, and Arabic. My Francophone market expertise covers France, Switzerland, Belgium, and Quebec."},
+    {id:"3",q:"How much does SEO content cost?",a:"Pricing depends on scope, complexity, and volume. Individual articles start from competitive market rates, while ongoing retainers offer better value. Contact me for a custom quote."},
+    {id:"4",q:"What is your content strategy process?",a:"I follow a 6-step framework: (1) Search intent mapping, (2) Trust architecture design, (3) SEO structure planning, (4) Content production, (5) Cultural adaptation, (6) Performance measurement."},
+    {id:"5",q:"Do you offer content strategy or just writing?",a:"Both. I offer full content strategy - including audience research, keyword mapping, editorial calendar planning, and content architecture - as well as the writing itself."},
+    {id:"6",q:"How do you handle health tourism content?",a:"Medical content requires credibility and empathy. I write with proper medical citations, address patient concerns proactively, and build trust architecture that converts researching patients into booked procedures."},
+    {id:"7",q:"What SEO tools do you use?",a:"I work with Ahrefs, SEMrush, Google Analytics 4, Google Search Console, Screaming Frog, Surfer SEO, and Clearscope."},
+    {id:"8",q:"Can you manage content at scale?",a:"Yes. I've managed content systems producing 20+ articles per month for lead generation platforms. My workflows include editorial calendars, style guides, QA checklists, and performance dashboards."}
+  ];
+}
+function admSave(){localStorage.setItem(ADMSTORE,JSON.stringify(ADM));admToast("Saved!");}
+
+// Open/close
+function openAdmin(){document.getElementById('adminOverlay').classList.add('active');document.body.style.overflow='hidden';}
+function closeAdmin(){document.getElementById('adminOverlay').classList.remove('active');document.getElementById('adminPanel').classList.remove('active');document.getElementById('adminLogin').style.display='flex';document.body.style.overflow='';}
+
+// Login
+function admLogin(){
+  if(document.getElementById('admPass').value===ADMPASS){
+    document.getElementById('adminLogin').style.display='none';
+    document.getElementById('adminPanel').classList.add('active');
+    admLoad();admBuildNav();admShowPage('dashboard');
+  } else {document.getElementById('admErr').textContent="Wrong password. Try 'admin123'";}
+}
+
+// Toast
+function admToast(msg){var t=document.getElementById('admToast');if(!t){t=document.createElement('div');t.id='admToast';t.className='adm-toast';document.body.appendChild(t);}t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},3000);}
+
+// Navigation
+var ADMcur='';
+function admBuildNav(){var h='';ADMNavItems.forEach(function(n){h+='<button data-page="'+n.p+'" onclick="admShowPage(\''+n.p+'\',this)">'+n.i+' '+n.l+'</button>';});document.getElementById('admNav').innerHTML=h;}
+function admShowPage(page,el){
+  ADMcur=page;if(el){document.querySelectorAll('.adm-nav button').forEach(function(b){b.classList.remove('active');});el.classList.add('active');}
+  else{document.querySelectorAll('.adm-nav button').forEach(function(b){b.classList.toggle('active',b.dataset.page===page);});}
+  var titles={dashboard:'Dashboard',hero:'Hero Section',about:'About',approach:'Approach',cases:'Case Studies',tamara:'Tamara Project',journalism:'Journalism',tools:'Tools & Certs',timeline:'Career',testimonials:'Testimonials',faq:'FAQ',contact:'Contact',seo:'SEO Settings',submissions:'Submissions'};
+  document.getElementById('admTitle').textContent=titles[page]||page;
+  var fn='admPage_'+page;if(window[fn])document.getElementById('admContent').innerHTML=window[fn]();else document.getElementById('admContent').innerHTML='<div class="adm-card"><h4>Page</h4></div>';
+}
+
+// Helpers
+function _f(l,id,v){return '<div class="adm-field"><label>'+l+'</label><input id="'+id+'" value="'+(v||'').replace(/"/g,'&quot;')+'"></div>';}
+function _a(l,id,v,r){return '<div class="adm-field"><label>'+l+'</label><textarea id="'+id+'" rows="'+(r||3)+'">'+(v||'')+'</textarea></div>';}
+function _s(l,id,v,opts){var o='';opts.forEach(function(x){o+='<option value="'+x.v+'"'+(x.v===v?' selected':'')+'>'+x.l+'</option>';});return '<div class="adm-field"><label>'+l+'</label><select id="'+id+'">'+o+'</select></div>';}
+function _card(t,b){return '<div class="adm-card"><h4>'+t+'</h4>'+b+'</div>';}
+function _save(a){return '<div class="adm-savebar"><button class="adm-btn-prime" onclick="'+a+'()">&#128190; Save Changes</button></div>';}
+function _tags(l,id,items){var tid=id+'_tags',iid=id+'_inp';var h='<div class="adm-field"><label>'+l+'</label><div class="adm-tags" id="'+tid+'">';items.forEach(function(t){h+='<span class="adm-tag">'+t+'<button onclick="this.parentElement.remove()">&times;</button></span>';});h+='</div><div class="adm-tagrow"><input type="text" id="'+iid+'" placeholder="Type and press Enter" onkeydown="if(event.key===\'Enter\'){event.preventDefault();admAddTag(\''+tid+'\',this.value);this.value=\'\'}"><button onclick="admAddTag(\''+tid+'\',document.getElementById(\''+iid+'\').value);document.getElementById(\''+iid+'\').value=\'\'">+ Add</button></div></div>';return h;}
+function admAddTag(cid,v){if(!v.trim())return;var c=document.getElementById(cid),s=document.createElement('span');s.className='adm-tag';s.innerHTML=v.trim()+'<button onclick="this.parentElement.remove()">&times;</button>';c.appendChild(s);}
+function admGT(cid){var t=[];document.querySelectorAll('#'+cid+' .adm-tag').forEach(function(el){t.push(el.childNodes[0].textContent.trim());});return t;}
+function admGV(id){var el=document.getElementById(id);return el?el.value:'';}
+function _acc(t,b){return '<div class="adm-acc"><button class="adm-acc-head" onclick="this.parentElement.classList.toggle(\'open\')">'+t+'<span class="tgl">&#9662;</span></button><div class="adm-acc-body">'+b+'</div></div>';}
+
+// ===== PAGES =====
+function admPage_dashboard(){
+  return '<div class="adm-stats">'+
+    '<div class="adm-stat"><div class="adm-stat-lab">Case Studies</div><div class="adm-stat-val">'+ADM.cases.length+'</div></div>'+
+    '<div class="adm-stat"><div class="adm-stat-lab">Testimonials</div><div class="adm-stat-val">'+ADM.testimonials.length+'</div></div>'+
+    '<div class="adm-stat"><div class="adm-stat-lab">FAQ Items</div><div class="adm-stat-val">'+ADM.faq.length+'</div></div>'+
+    '<div class="adm-stat"><div class="adm-stat-lab">Timeline</div><div class="adm-stat-val">'+ADM.timeline.length+'</div></div>'+
+    '</div>'+_card('Quick Actions','<div class="adm-actions"><button class="adm-btn-prime" onclick="admExport()">&#128190; Export Backup</button><button class="green" onclick="admImport()">&#128194; Import Backup</button><button class="adm-btn-red" onclick="admReset()">&#128260; Reset Defaults</button></div><p style="font-size:.82rem;color:var(--sub);margin-top:12px">Export saves all portfolio data as JSON. Import restores from a backup. Reset returns everything to original values.</p>');
+}
+function admPage_hero(){var h=ADM.hero;return _card('Hero Content',_f('Eyebrow Badge','ah_eb',h.eyebrow)+_f('Full Name','ah_na',h.name)+_f('Title','ah_ti',h.title)+_a('Description','ah_de',h.description,3)+_tags('Tags','ah_ta',h.tags.split(','))+'<div class="adm-cols2">'+_f('Primary CTA Text','ah_pt',h.primaryCtaText)+_f('Primary CTA Link','ah_pl',h.primaryCtaLink)+'</div>'+'<div class="adm-cols2">'+_f('Secondary CTA Text','ah_st',h.secondaryCtaText)+_f('Secondary CTA Link','ah_sl',h.secondaryCtaLink)+'</div>')+_card('Badge Info','<div class="adm-cols2">'+_f('Company','ah_bc',h.badgeCompany)+_f('Location','ah_bl',h.badgeLocation)+'</div>')+_card('Photo',_f('Photo filename or URL','ah_ph',h.photo,'e.g. hero-photo.jpg')+'<p style="font-size:.8rem;color:var(--sub);margin-top:8px">Replace hero-photo.jpg in your repo, or enter a full URL.</p>')+_save('admSaveHero');}
+function admPage_about(){var a=ADM.about,ps=a.paragraphs.split('|');return _card('Header',_f('Label','aa_la',a.label)+_f('Title','aa_ti',a.title)+_a('Subtitle','aa_su',a.subtitle,2))+_card('Skills',_tags('Skills','aa_sk',a.skills.split(',')))+_card('Industries',_tags('Industries','aa_in',a.industries.split(',')))+_card('Bio Paragraphs',ps.map(function(p,i){return _a('Paragraph '+(i+1),'aa_p'+i,p,4);}).join(''))+_card('Resume',_f('Resume URL','aa_re',a.resumeUrl))+_save('admSaveAbout');}
+function admPage_approach(){var ap=ADM.approach;var h=_card('Header',_f('Label','ap_la',ap.label)+_f('Title','ap_ti',ap.title)+_a('Subtitle','ap_su',ap.subtitle,2));ap.cards.forEach(function(c,i){h+=_card('Card '+(i+1)+': '+c.t,'<div class="adm-cols2">'+_f('Number','ap_n'+i,c.n)+_f('Title','ap_t'+i,c.t)+'</div>'+_a('Description','ap_d'+i,c.d,3));});return h+_save('admSaveApproach');}
+function admPage_cases(){var h='<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px"><h3 style="font-size:1.1rem">Case Studies ('+ADM.cases.length+')</h3><button class="adm-btn-prime" onclick="admAddCase()">+ Add Case</button></div>';ADM.cases.forEach(function(c,i){h+=_acc('#'+c.n+' - '+c.title+' <span style="color:var(--sub);font-weight:500">('+c.label+')</span>','<div class="adm-cols2">'+_f('Number','ac_n'+i,c.n)+_f('Title','ac_t'+i,c.title)+'</div>'+'<div class="adm-cols2">'+_s('Category','ac_c'+i,c.cat,[{v:'health',l:'Health Tourism'},{v:'leadgen',l:'Lead Generation'},{v:'b2b',l:'B2B'},{v:'legal',l:'Legal'},{v:'fashion',l:'Lifestyle'}])+_f('Category Label','ac_cl'+i,c.label)+'</div>'+_f('Meta','ac_m'+i,c.meta)+'<div class="adm-cols2">'+_f('KPI 1 Value','ac_1v'+i,c.kpi1v)+_f('KPI 1 Label','ac_1l'+i,c.kpi1l)+'</div>'+'<div class="adm-cols2">'+_f('KPI 2 Value','ac_2v'+i,c.kpi2v)+_f('KPI 2 Label','ac_2l'+i,c.kpi2l)+'</div>'+'<div class="adm-cols2">'+_f('KPI 3 Value','ac_3v'+i,c.kpi3v)+_f('KPI 3 Label','ac_3l'+i,c.kpi3l)+'</div>'+_a('Role Text','ac_r'+i,c.role,2)+_a('Description','ac_d'+i,c.desc,3)+_a('Points (pipe-separated)','ac_pt'+i,c.points,4)+'<div class="adm-cols2">'+_f('Image URL','ac_im'+i,c.img)+_f('Logo URL','ac_lo'+i,c.logo)+'</div>'+_f('Case Study Link','ac_li'+i,c.link)+'<div style="margin-top:10px"><button class="adm-btn-red" onclick="admDelCase('+i+')">Delete Case Study</button></div>');});return h+_save('admSaveCases');}
+function admPage_tamara(){var t=ADM.tamara;return _card('Project Info',_f('Title','at_t',t.title)+_f('Label','at_l',t.label)+_f('Meta','at_m',t.meta)+_a('Description','at_d',t.description,4))+_card('Role & KPIs',_f('Role Label','at_rl',t.roleLabel)+_a('Role Text','at_rt',t.roleText,2)+'<div class="adm-cols3">'+_f('KPI 1 Value','at_1v',t.kpi1v)+_f('KPI 1 Label','at_1l',t.kpi1l)+'</div>'+'<div class="adm-cols3">'+_f('KPI 2 Value','at_2v',t.kpi2v)+_f('KPI 2 Label','at_2l',t.kpi2l)+'</div>'+'<div class="adm-cols3">'+_f('KPI 3 Value','at_3v',t.kpi3v)+_f('KPI 3 Label','at_3l',t.kpi3l)+'</div>')+_card('Key Points',_a('Points (pipe-separated)','at_pt',t.points,4))+_card('Services',_f('Service 1 Title','at_s1t',t.svc1t)+_a('Service 1 Desc','at_s1d',t.svc1d,2)+_f('Service 2 Title','at_s2t',t.svc2t)+_a('Service 2 Desc','at_s2d',t.svc2d,2)+_f('Service 3 Title','at_s3t',t.svc3t)+_a('Service 3 Desc','at_s3d',t.svc3d,2)+_f('Service 4 Title','at_s4t',t.svc4t)+_a('Service 4 Desc','at_s4d',t.svc4d,2))+_card('Links',_f('Project Link','at_li',t.link))+_save('admSaveTamara');}
+function admPage_journalism(){var j=ADM.journalism,o=j.outletHighlights.split('|');return _card('Header',_f('Label','aj_la',j.label)+_f('Title','aj_ti',j.title)+_a('Subtitle','aj_su',j.subtitle,2))+_card('Nessma TV','<div class="adm-cols2">'+_f('Outlet Name','aj_on',j.outletName)+_f('Role','aj_or',j.outletRole)+'</div>'+'<div class="adm-cols2">'+_f('Period','aj_op',j.outletPeriod)+_f('Location','aj_ol',j.outletLocation)+'</div>'+'<div class="adm-cols2">'+_f('Arabic Link','aj_oa',j.outletArabic)+_f('French Link','aj_of',j.outletFrench)+'</div>'+_a('Description','aj_od',j.outletDesc,3)+_tags('Highlights','aj_oh',o))+_card('Journalism Skills',_tags('Skills','aj_sk',j.skills.split('|')))+_save('admSaveJournalism');}
+function admPage_tools(){var t=ADM.tools,h=_card('Header',_f('Label','atl_la',t.label)+_f('Title','atl_ti',t.title)+_a('Subtitle','atl_su',t.subtitle,2));for(var i=1;i<=12;i++){var p=t['tool'+i].split('|');h+=_card('Tool '+i,'<div class="adm-cols2">'+_f('Name','tl_'+i+'n',p[0])+_f('Category','tl_'+i+'c',p[1])+'</div>');}h+=_card('Certifications',_tags('Certifications','tl_ce',t.certs.split('|')))+_save('admSaveTools');return h;}
+function admPage_timeline(){var h='<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px"><h3 style="font-size:1.1rem">Career Timeline ('+ADM.timeline.length+')</h3><button class="adm-btn-prime" onclick="admAddTL()">+ Add Entry</button></div>';ADM.timeline.forEach(function(t,i){h+=_acc(t.year+' - '+t.title+' at '+t.company,'<div class="adm-cols2">'+_f('Year','tl_y'+i,t.year)+_f('Location','tl_lo'+i,t.location)+'</div>'+'<div class="adm-cols2">'+_f('Title','tl_t'+i,t.title)+_f('Company','tl_c'+i,t.company)+'</div>'+_a('Description','tl_d'+i,t.desc,3)+_tags('Highlights','tl_h'+i,t.highlights.split('|'))+'<button class="adm-btn-red" style="margin-top:8px" onclick="admDelTL('+i+')">Delete Entry</button>');});return h+_save('admSaveTL');}
+function admPage_testimonials(){var h='<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px"><h3 style="font-size:1.1rem">Testimonials ('+ADM.testimonials.length+')</h3><button class="adm-btn-prime" onclick="admAddTM()">+ Add</button></div>';ADM.testimonials.forEach(function(t,i){h+=_acc((t.name||'Anonymous')+' - '+t.company,'<div class="adm-cols2">'+_f('Name / Title','tm_n'+i,t.name)+_f('Company','tm_c'+i,t.company)+'</div>'+_a('Quote','tm_q'+i,t.quote,3)+'<button class="adm-btn-red" style="margin-top:8px" onclick="admDelTM('+i+')">Delete</button>');});return h+_save('admSaveTM');}
+function admPage_faq(){var h='<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px"><h3 style="font-size:1.1rem">FAQ Items ('+ADM.faq.length+')</h3><button class="adm-btn-prime" onclick="admAddFAQ()">+ Add FAQ</button></div>';ADM.faq.forEach(function(q,i){h+=_acc('Q: '+(q.q.length>60?q.q.substring(0,60)+'...':q.q),_f('Question','fq_q'+i,q.q)+_a('Answer','fq_a'+i,q.a,4)+'<button class="adm-btn-red" style="margin-top:8px" onclick="admDelFAQ('+i+')">Delete FAQ</button>');});return h+_save('admSaveFAQ');}
+function admPage_contact(){var c=ADM.contact;return _card('Header',_f('Label','ac_la',c.label)+_f('Title','ac_ti',c.title)+_a('Subtitle','ac_su',c.subtitle,2))+_card('Contact Details',_f('Email','ac_em',c.email)+_f('LinkedIn URL','ac_li',c.linkedin)+_f('Agency URL','ac_ag',c.agency)+_f('Agency Label','ac_al',c.agencyLabel)+'<div class="adm-cols2">'+_f('Location','ac_lo',c.location)+_f('Languages','ac_la2',c.languages)+'</div>'+_f('Availability','ac_av',c.availability))+_save('admSaveContact');}
+function admPage_seo(){var s=ADM.seo;return _card('Meta Tags',_f('Page Title','as_ti',s.pageTitle)+_a('Meta Description','as_de',s.metaDesc,3)+_f('Author','as_au',s.author)+_f('OG Image Path','as_og',s.ogImage)+_f('Twitter Handle','as_tw',s.twitter)+_f('Site URL','as_ur',s.siteUrl)+_f('Language','as_la',s.language)+_f('Robots','as_ro',s.robots))+_card('Keywords',_tags('SEO Keywords','as_kw',s.keywords.split(',')))+_save('admSaveSEO');}
+function admPage_submissions(){var subs=[];try{subs=JSON.parse(localStorage.getItem('contact-submissions')||'[]');}catch(e){}if(!subs.length)return _card('Contact Submissions','<p style="color:var(--sub)">No submissions yet. When visitors fill out your contact form, they\'ll appear here.</p>');var h=_card('Contact Submissions ('+subs.length+')','<table class="adm-table"><thead><tr><th>Name</th><th>Email</th><th>Type</th><th>Date</th><th>Message</th></tr></thead><tbody>');subs.slice().reverse().forEach(function(s){h+='<tr><td>'+(s.firstName||'')+' '+(s.lastName||'')+'</td><td>'+(s.email||'')+'</td><td>'+(s.projectType||'-')+'</td><td>'+(s.date?new Date(s.date).toLocaleDateString():'-')+'</td><td>'+(s.message||'').substring(0,80)+'...</td></tr>';});h+='</tbody></table><button class="adm-btn-red" style="margin-top:12px" onclick="admClearSubs()">Clear All</button>';return h;}
+
+// ===== SAVE FUNCTIONS =====
+function admSaveHero(){var h=ADM.hero;h.eyebrow=admGV('ah_eb');h.name=admGV('ah_na');h.title=admGV('ah_ti');h.description=admGV('ah_de');h.tags=admGT('ah_ta_tags').join(',');h.primaryCtaText=admGV('ah_pt');h.primaryCtaLink=admGV('ah_pl');h.secondaryCtaText=admGV('ah_st');h.secondaryCtaLink=admGV('ah_sl');h.badgeCompany=admGV('ah_bc');h.badgeLocation=admGV('ah_bl');h.photo=admGV('ah_ph');admSave();}
+function admSaveAbout(){var a=ADM.about;a.label=admGV('aa_la');a.title=admGV('aa_ti');a.subtitle=admGV('aa_su');a.skills=admGT('aa_sk_tags').join(',');a.industries=admGT('aa_in_tags').join(',');var ps=[];for(var i=0;i<5;i++)ps.push(admGV('aa_p'+i));a.paragraphs=ps.join('|');a.resumeUrl=admGV('aa_re');admSave();}
+function admSaveApproach(){var ap=ADM.approach;ap.label=admGV('ap_la');ap.title=admGV('ap_ti');ap.subtitle=admGV('ap_su');ap.cards.forEach(function(c,i){c.n=admGV('ap_n'+i);c.t=admGV('ap_t'+i);c.d=admGV('ap_d'+i);});admSave();}
+function admSaveCases(){ADM.cases.forEach(function(c,i){c.n=admGV('ac_n'+i);c.title=admGV('ac_t'+i);c.cat=admGV('ac_c'+i);c.label=admGV('ac_cl'+i);c.meta=admGV('ac_m'+i);c.kpi1v=admGV('ac_1v'+i);c.kpi1l=admGV('ac_1l'+i);c.kpi2v=admGV('ac_2v'+i);c.kpi2l=admGV('ac_2l'+i);c.kpi3v=admGV('ac_3v'+i);c.kpi3l=admGV('ac_3l'+i);c.role=admGV('ac_r'+i);c.desc=admGV('ac_d'+i);c.points=admGV('ac_pt'+i);c.img=admGV('ac_im'+i);c.logo=admGV('ac_lo'+i);c.link=admGV('ac_li'+i);});admSave();admShowPage('cases');}
+function admSaveTamara(){var t=ADM.tamara;t.title=admGV('at_t');t.label=admGV('at_l');t.meta=admGV('at_m');t.description=admGV('at_d');t.roleLabel=admGV('at_rl');t.roleText=admGV('at_rt');t.kpi1v=admGV('at_1v');t.kpi1l=admGV('at_1l');t.kpi2v=admGV('at_2v');t.kpi2l=admGV('at_2l');t.kpi3v=admGV('at_3v');t.kpi3l=admGV('at_3l');t.points=admGV('at_pt');t.svc1t=admGV('at_s1t');t.svc1d=admGV('at_s1d');t.svc2t=admGV('at_s2t');t.svc2d=admGV('at_s2d');t.svc3t=admGV('at_s3t');t.svc3d=admGV('at_s3d');t.svc4t=admGV('at_s4t');t.svc4d=admGV('at_s4d');t.link=admGV('at_li');admSave();}
+function admSaveJournalism(){var j=ADM.journalism;j.label=admGV('aj_la');j.title=admGV('aj_ti');j.subtitle=admGV('aj_su');j.outletName=admGV('aj_on');j.outletRole=admGV('aj_or');j.outletPeriod=admGV('aj_op');j.outletLocation=admGV('aj_ol');j.outletArabic=admGV('aj_oa');j.outletFrench=admGV('aj_of');j.outletDesc=admGV('aj_od');j.outletHighlights=admGT('aj_oh_tags').join('|');j.skills=admGT('aj_sk_tags').join('|');admSave();}
+function admSaveTools(){var t=ADM.tools;t.label=admGV('atl_la');t.title=admGV('atl_ti');t.subtitle=admGV('atl_su');for(var i=1;i<=12;i++){t['tool'+i]=admGV('tl_'+i+'n')+'|'+admGV('tl_'+i+'c');}t.certs=admGT('tl_ce_tags').join('|');admSave();admShowPage('tools');}
+function admSaveTL(){ADM.timeline.forEach(function(t,i){t.year=admGV('tl_y'+i);t.location=admGV('tl_lo'+i);t.title=admGV('tl_t'+i);t.company=admGV('tl_c'+i);t.desc=admGV('tl_d'+i);t.highlights=admGT('tl_h'+i+'_tags').join('|');});admSave();admShowPage('timeline');}
+function admSaveTM(){ADM.testimonials.forEach(function(t,i){t.name=admGV('tm_n'+i);t.company=admGV('tm_c'+i);t.quote=admGV('tm_q'+i);});admSave();admShowPage('testimonials');}
+function admSaveFAQ(){ADM.faq.forEach(function(q,i){q.q=admGV('fq_q'+i);q.a=admGV('fq_a'+i);});admSave();admShowPage('faq');}
+function admSaveContact(){var c=ADM.contact;c.label=admGV('ac_la');c.title=admGV('ac_ti');c.subtitle=admGV('ac_su');c.email=admGV('ac_em');c.linkedin=admGV('ac_li');c.agency=admGV('ac_ag');c.agencyLabel=admGV('ac_al');c.location=admGV('ac_lo');c.languages=admGV('ac_la2');c.availability=admGV('ac_av');admSave();}
+function admSaveSEO(){var s=ADM.seo;s.pageTitle=admGV('as_ti');s.metaDesc=admGV('as_de');s.author=admGV('as_au');s.ogImage=admGV('as_og');s.twitter=admGV('as_tw');s.siteUrl=admGV('as_ur');s.language=admGV('as_la');s.robots=admGV('as_ro');s.keywords=admGT('as_kw_tags').join(',');admSave();}
+
+// ===== CRUD =====
+function admAddCase(){ADM.cases.push({n:String(ADM.cases.length+1).padStart(2,'0'),id:'cs'+Date.now(),cat:'health',label:'Health Tourism',title:'New Case Study',meta:'',kpi1v:'',kpi1l:'',kpi2v:'',kpi2l:'',kpi3v:'',kpi3l:'',role:'',desc:'',points:'',img:'',logo:'',link:'',st:'Active'});admShowPage('cases');admToast('Case study added!');}
+function admDelCase(i){if(confirm('Delete this case study?')){ADM.cases.splice(i,1);admSave();admShowPage('cases');}}
+function admAddTL(){ADM.timeline.push({id:'tl'+Date.now(),year:'2024',title:'New Position',company:'Company',location:'Location',desc:'Description',highlights:'Highlight'});admShowPage('timeline');admToast('Entry added!');}
+function admDelTL(i){if(confirm('Delete?')){ADM.timeline.splice(i,1);admSave();admShowPage('timeline');}}
+function admAddTM(){ADM.testimonials.push({id:'tm'+Date.now(),name:'Client Name',company:'Company',quote:'Quote text...'});admShowPage('testimonials');admToast('Added!');}
+function admDelTM(i){if(confirm('Delete?')){ADM.testimonials.splice(i,1);admSave();admShowPage('testimonials');}}
+function admAddFAQ(){ADM.faq.push({id:'fq'+Date.now(),q:'New Question',a:'Answer text...'});admShowPage('faq');admToast('FAQ added!');}
+function admDelFAQ(i){if(confirm('Delete this FAQ?')){ADM.faq.splice(i,1);admSave();admShowPage('faq');}}
+function admClearSubs(){if(confirm('Clear all submissions?')){localStorage.removeItem('contact-submissions');admShowPage('submissions');admToast('Cleared!');}}
+
+// ===== EXPORT/IMPORT/RESET =====
+function admExport(){var blob=new Blob([JSON.stringify(ADM,null,2)],{type:'application/json'});var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='portfolio-backup-'+new Date().toISOString().split('T')[0]+'.json';a.click();admToast('Backup exported!');}
+function admImport(){var inp=document.createElement('input');inp.type='file';inp.accept='.json';inp.onchange=function(){var r=new FileReader();r.onload=function(e){try{var imp=JSON.parse(e.target.result);ADM=imp;admSave();location.reload();}catch(err){admToast('Invalid JSON file');}};r.readAsText(inp.files[0]);};inp.click();}
+function admReset(){if(confirm('Reset ALL data to defaults? This cannot be undone.')){localStorage.removeItem(ADMSTORE);location.reload();}}
+
+// ===== TOAST (ensure element exists) =====
+var _toastEl=document.createElement('div');_toastEl.id='admToast';_toastEl.className='adm-toast';document.body.appendChild(_toastEl);
 </script>
 </body>
 </html>
